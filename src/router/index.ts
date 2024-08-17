@@ -1,24 +1,29 @@
-import Vue from 'vue'
-import type { RouteConfig } from 'vue-router'
-import VueRouter from 'vue-router'
-import Home from '@/views/Home.vue'
-import NotFound from '@/views/NotFound.vue'
+import Vue from "vue";
+import type { RouteConfig } from "vue-router";
+import VueRouter from "vue-router";
+import Home from "@/views/home/index.vue";
+import NotFound from "@/views/NotFound.vue";
+import Person from "@/views/person/index.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 export const routes: RouteConfig[] = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: Home,
   },
-  
-]
+  {
+    path: "/person/:id",
+    name: "Person",
+    component: Person,
+  },
+];
 
 const router = new VueRouter({
-  base: '/',
-  mode: 'history',
+  base: "/",
+  mode: "history",
   routes,
-})
+});
 
-export default router
+export default router;

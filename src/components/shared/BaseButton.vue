@@ -1,7 +1,9 @@
 <template>
   <button :class="buttonClass" @click="handleClick">
+    <span>
     <slot name="icon"></slot>
-    <span class="pl-2"><slot></slot></span>
+    </span>
+    <span><slot /></span>
   </button>
 </template>
 

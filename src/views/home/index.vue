@@ -13,11 +13,15 @@
       <LocationSection />
       <Footer />
 
-    <hr class="h-0.5 bg-blue-1" />
-    <div class="flex items-center justify-between mt-4 mb-10">
-      <span>2024</span>
-      <span>powered By <a href="https://www.linkedin.com/in/mrghamari/">mrGhamari</a></span>
-    </div>
+      <hr class="h-0.5 bg-blue-1" />
+
+      <div class="flex items-center justify-between mt-4 mb-10">
+        <span>2024</span>
+        <span>
+          powered By
+          <a href="https://www.linkedin.com/in/mrghamari/">mrGhamari</a>
+        </span>
+      </div>
     </div>
   </div>
 </template>

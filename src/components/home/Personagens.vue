@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="flex justify-end mt-3">
-          <base-button>
+          <base-button @click.native="goToPage(personagensItem.id)">
             <template #icon>
               <img
                 src="../../assets/icon/Info.svg"
@@ -69,6 +69,11 @@ export default {
   props: {
     personagensItem: {
       required: true,
+    },
+  },
+  methods: {
+    goToPage(id) {
+      this.$router.push(`/person/${id}`);
     },
   },
 };

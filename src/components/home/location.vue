@@ -3,7 +3,9 @@
     <div
       class="location-card__image transform -translate-y-1/2 grid justify-items-center"
     >
+    <img v-if="icon" src="../../assets/icon/LocationMark.svg" alt="Location Mark">
       <img
+      v-else
         src="../../assets/icon/Location.svg"
         alt="Moon"
         width="45px"
@@ -27,7 +29,7 @@
         </base-button>
       </div>
 
-      <base-button buttonClass="personagens-card__liked-button">
+      <base-button buttonClass="personagens-card__liked-button mb-7">
         <template #icon>
           <img
             src="../../assets/icon/Liked.svg"
@@ -50,6 +52,7 @@ export default {
     locationItems: {
       required: true,
     },
+    icon: { required: false },
   },
 };
 </script>
