@@ -16,7 +16,7 @@
         </base-button>
       </span>
     </div>
-    <div class="grid grid-cols-7 mt-6 gap-4">
+    <div class="grid grid-cols-7 lg:grid-cols-5 mt-6 gap-4">
       <div v-for="(item, index) in locationList" :key="item.id">
         <Location :locationItems="item" />
       </div>
@@ -26,7 +26,6 @@
 
 <script>
 import Location from "./location.vue";
-import location from "./location.vue";
 export default {
   name: "location-section",
 
@@ -46,7 +45,7 @@ export default {
       try {
         const response = await fetch(this.baseUrl + "location");
         const data = await response.json();
-        this.locationList = data.results.slice(0, 7);
+        this.locationList = data.results.slice(0, 5);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

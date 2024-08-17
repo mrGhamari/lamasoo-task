@@ -16,7 +16,7 @@
         </base-button>
       </span>
     </div>
-    <div class="grid grid-cols-5 mt-6 gap-4">
+    <div class="grid md:grid-cols-4 grid-cols-5 mt-6 gap-4">
       <div v-for="(item, index) in episodeList" :key="item.id">
         <Episode :episodeItems="item" />
       </div>
@@ -45,7 +45,7 @@ export default {
       try {
         const response = await fetch(this.baseUrl + "episode");
         const data = await response.json();
-        this.episodeList = data.results.slice(0, 5);
+        this.episodeList = data.results.slice(0, 4);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

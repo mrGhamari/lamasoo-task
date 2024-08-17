@@ -1,13 +1,13 @@
 <template>
   <div class="home-page">
-    <div class="container mx-auto px-12">
+    <div class="container mx-auto lg:px-16 px-40">
       <Header />
       <HomeBanner />
     </div>
 
     <hr class="h-0.5 bg-blue-1" />
 
-    <div class="container mx-auto px-12 mt-6">
+    <div class="container mx-auto lg:px-16 px-40  mt-6">
       <PersonagensSection />
       <EpisodeSection />
       <LocationSection />

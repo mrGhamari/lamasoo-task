@@ -16,7 +16,7 @@
           height="25px"
         />
       </template>
-      Lista de favoritos
+      <span class="pl-2"> Lista de favoritos </span>
     </base-button>
   </div>
 </template>

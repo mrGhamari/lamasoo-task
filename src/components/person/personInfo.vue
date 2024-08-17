@@ -25,7 +25,7 @@
           <div class="flex items-center mt-8">
             <img src="../../assets/icon/Monitor.svg" />
             <span class="ml-2">
-              Participa de {{ person.episode.length }} episódios
+              Participa de {{ episodeLength }} episódios
             </span>
           </div>
 
@@ -84,12 +84,18 @@
 
 <script>
 import BaseButton from "../shared/BaseButton.vue";
-import location from "../home/location.vue";
+import Location from "../home/location.vue";
 export default {
   name: "PersonInfo",
   props: {
     person: {
       required: true,
+    },
+  },
+  components:{Location},
+  computed: {
+    episodeLength() {
+      return this.person.episode.length;
     },
   },
 };

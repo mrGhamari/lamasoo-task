@@ -26,7 +26,7 @@
               height="25px"
             />
           </template>
-          Personagens
+          <span class="pl-2">Personagens</span>
         </Base-button>
 
         <Base-button buttonClass="bg-white flex items-center mx-3">
@@ -38,7 +38,7 @@
               height="25px"
             />
           </template>
-          Localizaçãoes
+          <span class="pl-2">Localizaçãoes</span>
         </Base-button>
         <Base-button buttonClass="bg-white flex items-center">
           <template #icon>
@@ -49,7 +49,7 @@
               height="25px"
             />
           </template>
-          Episódio
+          <span class="pl-2">Episódio</span>
         </Base-button>
       </div>
     </div>
@@ -65,7 +65,7 @@
               height="25px"
             />
           </template>
-          Ver todos
+          <span class="pl-2">Ver todos</span>
         </base-button>
       </span>
     </div>

@@ -17,7 +17,7 @@
               height="25px"
             />
           </template>
-          Escuro
+          <span class="pl-2"> Escuro </span>
         </Base-button>
 
         <Base-button class="ml-4">
@@ -29,7 +29,7 @@
               height="25px"
             />
           </template>
-          Claro
+          <span class="pl-2">Claro</span>
         </Base-button>
       </div>
       <div class="text-blue-1">Wubba Lubba Dub Dub! Cuidado com os olhos.</div>

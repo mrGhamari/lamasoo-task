@@ -7,7 +7,7 @@
         <div>episódios</div>
       </div>
     </div>
-    <div class="grid grid-cols-5 mt-6 gap-4">
+    <div class="grid grid-cols-4 mt-6 gap-4">
       <div v-for="(item, index) in episodeList" :key="item.id">
         <Episode :episodeItems="item" />
       </div>

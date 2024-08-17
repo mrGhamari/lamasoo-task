@@ -6,12 +6,13 @@
         :alt="personagensItem.name"
         width="100%"
         height="200px"
+        class="rounded-[16px]"
       />
     </div>
     <div>
       <div class="column">
         <div class="personagens-card__name text-grey-3 text-bold pt-4">
-          {{ personagensItem.name }}
+          {{ name }}
         </div>
 
         <div class="flex items-start justify-between">
@@ -26,7 +27,7 @@
             </div>
             <div class="flex flex-items">
               <img src="../../assets/icon/Planet.svg" alt="Planet" />
-              <span class="pl-3">{{ personagensItem.origin.name }}</span>
+              <span class="pl-3">{{ truncatedString }}</span>
             </div>
           </div>
 
@@ -53,7 +54,7 @@
                 height="20px"
               />
             </template>
-            Saiba mais
+            <span class="pl-2">Saiba mais</span>
           </base-button>
         </div>
       </div>
@@ -71,9 +72,27 @@ export default {
       required: true,
     },
   },
+  computed: {
+    name() {
+      const str = this.personagensItem.name;
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 1024)
+        return str.length > 18 ? str.substring(0, 18) + "..." : str;
+      else return str;
+    },
+    truncatedString() {
+      const str = this.personagensItem.origin.name;
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 1024)
+        return str.length > 10 ? str.substring(0, 10) + "..." : str;
+      else if (screenWidth >= 1280)
+        return str.length > 22 ? str.substring(0, 22) + "..." : str;
+      else return str;
+    },
+  },
   methods: {
     goToPage(id) {
-      this.$router.push(`/person/${id}`);
+      if (this.$route.name !== "Person") this.$router.push(`/person/${id}`);
     },
   },
 };

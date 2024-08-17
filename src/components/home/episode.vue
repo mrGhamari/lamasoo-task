@@ -1,5 +1,5 @@
 <template>
-  <div class="episode-card px-4 pt-4 rounded-[16px] column">
+  <div class="episode-card p-4 rounded-[16px] column">
     <div class="flex items-center">
       <img
         src="../../assets/icon/Monitor.svg"
@@ -8,11 +8,11 @@
         height="25px"
       />
       <div class="ml-3">
-        {{ episodeItems.name }} | {{ episodeItems.episode }}
+        {{ title }}
       </div>
     </div>
 
-    <div class="flex flex-center items-center justify-between">
+    <div class="flex flex-center items-center justify-between mt-2">
       <base-button @click.native="goToPage(episodeItems.id)">
         <template #icon>
           <img
@@ -22,10 +22,10 @@
             height="20px"
           />
         </template>
-        Saiba mais
+        <span class="ml-1">Saiba mais</span>
       </base-button>
 
-      <base-button buttonClass="personagens-card__liked-button mt-6 mb-4">
+      <base-button buttonClass="personagens-card__liked-button">
         <template #icon>
           <img
             src="../../assets/icon/Liked.svg"
@@ -49,6 +49,18 @@ export default {
       required: true,
     },
   },
+  computed: {
+    title() {
+      const str = `${this.episodeItems.name} | ${this.episodeItems.episode}`;
+      const screenWidth = window.innerWidth;
+      if (screenWidth <= 1024)
+        return str.length > 10 ? str.substring(0, 10) + "..." : str;
+      else if (screenWidth >= 1280)
+        return str.length > 28 ? str.substring(0, 28) + "..." : str;
+      else return str;
+    },
+  },
+
   methods: {
     goToPage(id) {
       this.$router.push(`/episode/${id}`);
