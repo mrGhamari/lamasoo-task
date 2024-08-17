@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Home from "@/views/home/index.vue";
 import NotFound from "@/views/NotFound.vue";
 import Person from "@/views/person/index.vue";
+import Episode from "@/views/episode/index.vue";
 
 Vue.use(VueRouter);
 
@@ -17,6 +18,11 @@ export const routes: RouteConfig[] = [
     path: "/person/:id",
     name: "Person",
     component: Person,
+  },
+  {
+    path: "/episode/:id",
+    name: "Episode",
+    component: Episode,
   },
 ];
 

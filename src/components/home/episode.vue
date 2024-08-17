@@ -13,7 +13,7 @@
     </div>
 
     <div class="flex flex-center items-center justify-between">
-      <base-button>
+      <base-button @click.native="goToPage(episodeItems.id)">
         <template #icon>
           <img
             src="../../assets/icon/Info.svg"
@@ -25,7 +25,7 @@
         Saiba mais
       </base-button>
 
-      <base-button buttonClass="personagens-card__liked-button mt-6">
+      <base-button buttonClass="personagens-card__liked-button mt-6 mb-4">
         <template #icon>
           <img
             src="../../assets/icon/Liked.svg"
@@ -47,6 +47,11 @@ export default {
   props: {
     episodeItems: {
       required: true,
+    },
+  },
+  methods: {
+    goToPage(id) {
+      this.$router.push(`/episode/${id}`);
     },
   },
 };
