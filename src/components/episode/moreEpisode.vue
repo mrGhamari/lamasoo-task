@@ -12,6 +12,10 @@
         <Episode :episodeItems="item" />
       </div>
     </div>
+
+    <div class="flex justify-center mt-8">
+      <BasePagination :totalRecords="paginationData.count" v-model="page" />
+    </div>
   </div>
 </template>
 
@@ -24,17 +28,27 @@ export default {
 
   data() {
     return {
+      page: 1,
       episodeList: [],
+      paginationData: {},
       baseUrl: import.meta.env.VITE_BASE_URL,
     };
+  },
+  watch: {
+    page() {
+      this.fetchEpisodes();
+    },
   },
 
   methods: {
     async fetchEpisodes() {
       try {
-        const response = await fetch(this.baseUrl + "episode");
+        const response = await fetch(
+          this.baseUrl + `episode/?page=${this.page}`
+        );
         const data = await response.json();
         this.episodeList = data.results;
+        this.paginationData = data.info;
       } catch (error) {
         console.error("Error fetching data:", error);
       }
