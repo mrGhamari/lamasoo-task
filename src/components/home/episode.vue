@@ -63,7 +63,7 @@ export default {
 
   methods: {
     goToPage(id) {
-      this.$router.push(`/episode/${id}`);
+      if (this.$route.name !== "Episode") this.$router.push(`/episode/${id}`);
     },
   },
 };
