@@ -30,7 +30,7 @@ export default {
     return {
       page: 1,
       episodeList: [],
-      paginationData: {},
+      paginationData: { count: 1 },
       baseUrl: import.meta.env.VITE_BASE_URL,
     };
   },

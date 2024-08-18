@@ -31,13 +31,13 @@ export default {
     return {
       page: 1,
       characterList: [],
-      paginationData: {},
+      paginationData: { count: 1 },
       baseUrl: import.meta.env.VITE_BASE_URL,
     };
   },
   watch: {
     page() {
-      this.fetchCharacters()
+      this.fetchCharacters();
     },
   },
 
