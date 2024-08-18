@@ -12,10 +12,14 @@
         <Personagens :personagensItem="item" />
       </div>
     </div>
+    <div class="flex justify-center mt-8">
+      <BasePagination :totalRecords="paginationData.count" v-model="page" />
+    </div>
   </div>
 </template>
 
 <script>
+import BasePagination from "@/components/shared/BasePagination.vue";
 export default {
   name: "MorePerson",
   mounted() {
@@ -27,16 +31,25 @@ export default {
     return {
       page: 1,
       characterList: [],
+      paginationData: {},
       baseUrl: import.meta.env.VITE_BASE_URL,
     };
+  },
+  watch: {
+    page() {
+      this.fetchCharacters()
+    },
   },
 
   methods: {
     async fetchCharacters() {
       try {
-        const response = await fetch(this.baseUrl + "character");
+        const response = await fetch(
+          this.baseUrl + `character/?page=${this.page}`
+        );
         const data = await response.json();
         this.characterList = data.results;
+        this.paginationData = data.info;
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -44,4 +57,3 @@ export default {
   },
 };
 </script>
-
