@@ -2,7 +2,7 @@
   <div class="person-page">
     <div class="container mx-auto px-14">
       <Header />
-      <PersonInfo :person="character" />
+      <PersonInfo />
     </div>
 
     <hr class="h-0.5 bg-blue-1 mt-16 mb-12" />
@@ -33,37 +33,11 @@ import MorePerson from "@/components/person/morePerson.vue";
 
 export default {
   name: "Person",
-  mounted() {
-    this.fetchSingleCharacter();
-  },
+
   components: {
     Footer,
     Header,
     personInfo,
   },
-  data() {
-    return {
-      character: {},
-      baseUrl: import.meta.env.VITE_BASE_URL,
-    };
-  },
-  methods: {
-    async fetchSingleCharacter() {
-      try {
-        const response = await fetch(
-          this.baseUrl + `/character/${this.$route.params.id}`
-        );
-        const data = await response.json();
-        this.character = data;
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    },
-  },
 };
 </script>
-
-<style lang="scss">
-.person-page {
-}
-</style>

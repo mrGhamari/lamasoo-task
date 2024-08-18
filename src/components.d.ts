@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BaseButton: typeof import('./components/shared/BaseButton.vue')['default']
+    BasePagination: typeof import('./components/shared/BasePagination.vue')['default']
     ButtonPrimary: typeof import('./components/shared/ButtonPrimary.vue')['default']
     ButtonSecondary: typeof import('./components/shared/ButtonSecondary.vue')['default']
     Episode: typeof import('./components/home/episode.vue')['default']

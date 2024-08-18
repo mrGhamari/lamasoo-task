@@ -3,7 +3,7 @@
     <div class="flex flex-row items-start">
       <div class="basis-1/4">
         <img
-          :src="person.image"
+          :src="character.image"
           alt="Character Image"
           height="100%"
           class="rounded-[16px] h-full"
@@ -12,7 +12,7 @@
       <div class="ml-10 basis-3/4">
         <div class="text-4xl flex items-center">
           <span>
-            {{ person.name }}
+            {{ character.name }}
           </span>
           <Base-Button buttonClass="bg-white ml-4">
             <template #icon>
@@ -37,7 +37,7 @@
                 width="32"
                 height="32"
               />
-              <span class="pl-1">{{ person.status }}</span>
+              <span class="pl-1">{{ character.status }}</span>
             </div>
 
             <div class="flex flex-items ml-3">
@@ -47,7 +47,7 @@
                 width="32"
                 height="32"
               />
-              <span class="pl-1">{{ person.species }}</span>
+              <span class="pl-1">{{ character.species }}</span>
             </div>
 
             <div class="flex flex-items ml-3">
@@ -57,7 +57,7 @@
                 width="32"
                 height="32"
               />
-              <span class="pl-1">{{ person.origin.name }}</span>
+              <span class="pl-1">{{ character.origin?.name }}</span>
             </div>
           </div>
         </div>
@@ -65,14 +65,14 @@
         <div class="flex justify-end">
           <Location
             :locationItems="{
-              type: person.type ? person.type : '-',
-              name: person.origin.name,
+              type: character.type ? character.type : '-',
+              name: character.origin?.name,
             }"
           />
           <Location
             class="ml-8"
             :locationItems="{
-              type: person.location.name,
+              type: character.location?.name,
             }"
             icon="LocationMark"
           />
@@ -87,15 +87,35 @@ import BaseButton from "../shared/BaseButton.vue";
 import Location from "../home/location.vue";
 export default {
   name: "PersonInfo",
-  props: {
-    person: {
-      required: true,
-    },
+  mounted() {
+    this.fetchSingleCharacter();
   },
-  components:{Location},
+
+  components: { Location },
   computed: {
     episodeLength() {
-      return this.person.episode.length;
+      return this.character.episode?.length;
+    },
+  },
+
+  data() {
+    return {
+      character: {},
+      baseUrl: import.meta.env.VITE_BASE_URL,
+    };
+  },
+
+  methods: {
+    async fetchSingleCharacter() {
+      try {
+        const response = await fetch(
+          this.baseUrl + `/character/${this.$route.params.id}`
+        );
+        const data = await response.json();
+        this.character = data;
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     },
   },
 };
