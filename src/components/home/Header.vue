@@ -4,7 +4,8 @@
       <img
         src="../../assets/img/LogoA.svg"
         alt="Rick and Morty Logo"
-        class="logo"
+        class="logo cursor-pointer"
+        @click="()=> $router.push('/')"
       />
     </div>
     <base-button>
