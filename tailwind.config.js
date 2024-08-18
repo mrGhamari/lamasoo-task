@@ -25,6 +25,15 @@ module.exports = {
         "2xl": "1536px",
       },
     },
+    fontFamily: {
+      fontFamily: {
+        sans: ["'Inter'"],
+        serif: ["'Inter'"],
+        mono: ["'Inter'"],
+        display: ["'Inter'"],
+        body: ["'Inter'"],
+      },
+    },
   },
   plugins: [],
 };
