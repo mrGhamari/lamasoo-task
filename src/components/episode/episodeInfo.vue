@@ -33,7 +33,7 @@
       </div>
       <div class="flex flex-row items-center mt-16">
           <img src="../../assets/icon/More.svg" width="24" height="26" />
-          <span class="pl-2 text-grey-3">{{ episode.characters.length }} Personagens participaram deste episódio</span>
+          <span class="pl-2 text-grey-3">{{ episode.characters?.length }} Personagens participaram deste episódio</span>
         </div>
     </div>
   </div>
